@@ -1,35 +1,21 @@
-<template>
-  <div>
-
-  </div>
-</template>
-<script>
-import { count } from "../stores/counter";
-
-export default {
-  name: "HomeView",
-
-  data() {
-    return {
-      num: count().number
-    } 
-  },
-
-  methods: {
-    test() {
-      console.log(this.num)
-    }
-  },
-
-  computed: {
-
-  },
-
-  mounted() {
-    this.test();
-  }
+<script setup>
+import { count } from "@/stores/counter";
+const store = count();
 
 
-}
 </script>
-<style lang="css"></style>
+
+
+<template>
+
+<h1>{{ store.number }}</h1>
+
+<button @click="store.increment">ADD</button>
+
+</template>
+
+
+
+<style>
+
+</style>
